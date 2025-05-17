@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Habit Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+
+  <audio id="alarmSound" src="timerAlarm.mp3" preload="auto"></audio>
+  <audio id="completeSound" src="success.mp3" preload="auto"></audio>
+
+
+
+  <div class="app-container">
+    
+    <h1>🌱 Habit Building Tarcker</h1>
+
+    <div id="gemBar">
+        💎 <span id="gemCount">0</span> Gems
+      </div>
+      
+      <div id="congratsMessage" class="hidden">
+        🎉 Congratulations! You've completed a habit!
+      </div>
+      
+
+  <div class="habit-form">
+    <input type="text" id="habitName" placeholder="Habit name (e.g., Read a book , Run for hour )" />
+    <input type="number" id="habitTarget" placeholder="Goal per week (e.g., 5)" min="1" />
+    <button id="addHabit"><i class="fas fa-plus-circle"></i> Add Habit</button>
+  </div>
+<hr> 
+    <h2>Your Habits</h2>
+<hr>
+    <div id="habitList"></div>
+    <!-- 📊 This container will hold all dynamic habit charts -->
+<div id="chartsContainer"></div>
+
+
+  </div>
+
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+  // Example habit data (you can replace this with real habit data from your app)
+  const habits = [
+    {
+      name: "Exercise",
+      progress: [1, 1, 0, 1, 0, 1, 1]
+    },
+    {
+      name: "Reading",
+      progress: [0, 1, 1, 0, 1, 1, 1]
+    }
+  ];
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("chartsContainer");
+
+    habits.forEach((habit, index) => {
+      // Create wrapper div for each chart
+      const wrapper = document.createElement("div");
+      wrapper.style.marginBottom = "40px";
+
+      // Add habit title
+      const title = document.createElement("h2");
+      title.textContent = `Progress: ${habit.name}`;
+      wrapper.appendChild(title);
+
+      // Create canvas for chart
+      const canvas = document.createElement("canvas");
+      canvas.id = `habitChart${index}`;
+      canvas.width = 400;
+      canvas.height = 200;
+      wrapper.appendChild(canvas);
+
+      container.appendChild(wrapper);
+
+      // Render the chart
+      const ctx = canvas.getContext("2d");
+      new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          datasets: [{
+            label: habit.name,
+            data: habit.progress,
+            backgroundColor: habit.progress.map(val =>
+              val ? 'rgba(75, 192, 192, 0.6)' : 'rgba(255, 99, 132, 0.6)'
+            ),
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: {
+                stepSize: 1,
+                callback: value => value === 1 ? '✔ Done' : '✘ Missed'
+              }
+            }
+          },
+          plugins: {
+            title: {
+              display: true,
+              text: `${habit.name} - Weekly Progress`,
+              font: { size: 18 }
+            }
+          }
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+</body>
+</html>
