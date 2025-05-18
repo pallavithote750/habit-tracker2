@@ -1,0 +1,210 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom right, #f3f4f6, #e0f7fa);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+}
+
+.app-container {
+  background: #ffffff;
+  padding: 20px 20px;
+  width: 90%;
+  max-width: 550px;
+  margin: 60px auto;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  padding-top: 7px;
+}
+
+
+  h1, h2 {
+    text-align: center;
+    color: #333;
+     text-align: center;
+  color: #222;
+  margin-bottom: 10px ;
+  }
+
+h2{
+  margin-top: 5px;
+  font-size: 1.6rem;
+  margin-bottom: 5px;
+}
+
+.habit-form input, .habit-form button {
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+  
+  .habit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .habit-form input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  .habit-form button {
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 17px;
+  }
+  
+  .habit-form button:hover {
+    background-color: #43a047;
+  }
+  
+  #habitList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .habit-item {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .habit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .habit-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #333;
+  }
+  
+  .habit-item button {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .habit-item button:hover {
+    background-color: #1e88e5;
+  }
+  
+  .progress-container {
+    margin-top: 10px;
+  }
+  
+  progress {
+    width: 100%;
+    height: 16px;
+    border-radius: 8px;
+  }
+  
+  progress::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 8px;
+  }
+  
+  progress::-webkit-progress-value {
+    background-color: #4CAF50;
+    border-radius: 8px;
+  }
+  
+  @media (max-width: 600px) {
+    .app-container {
+      margin: 20px;
+      width: 95%;
+    }
+  }
+  
+  .habit-item button {
+    margin-left: 5px;
+  }
+  
+  #gemBar {
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+    color: #6A0DAD; /* Royal Purple */
+    margin-bottom: 15px;
+  }
+  
+  #congratsMessage {
+    text-align: center;
+    padding: 12px;
+    background: #f3e5f5;
+    color: #6A0DAD;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    animation: fadeInOut 4s ease-in-out forwards;
+    display: none;
+  }
+  
+  @keyframes fadeInOut {
+    0% { opacity: 0; transform: scale(0.9); }
+    10% { opacity: 1; transform: scale(1); }
+    90% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.9); }
+  }
+  
+  .hidden {
+    display: none;
+  }
+
+  .gem-reward {
+    color: #b21ed7; /* Medium Orchid / Royal Purple */
+    margin-left: 10px;
+    font-size: 1.2rem;
+  }
+  
+
+  
+  .timer-controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  
+  .timer-controls input {
+    width: 60px;
+    padding: 4px;
+  }
+  
+  .timer-countdown {
+    font-size: 14px;
+    color: #444;
+    margin-top: 4px;
+  }
+  
+  .timer-controls input {
+    width: 50px;
+    padding: 4px;
+    text-align: center;
+  }
+
+  
+
+ 
